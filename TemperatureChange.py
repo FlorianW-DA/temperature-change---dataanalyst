@@ -48,13 +48,13 @@ def framework_and_preprocessing_page():
     st.subheader("[Temperature Change data - FAOSTAT_data_1-10-2022.csv](https://www.kaggle.com/datasets/sevgisarac/temperature-change/?select=FAOSTAT_data_1-10-2022.csv)")
     st.write("This dataset is freely available on Kaggle.com. The FAOSTAT Temperature Change domain disseminates statistics of mean surface temperature change by country, with annual updates. The current dissemination covers the period 1961–2020.")
     st.write("The dataset has 229,925 entries and 14 columns. It is totally clear.")
-    image_path = "I:/Dropbox/Data Analyst/temp_head.png"
+    image_path = "/workspaces/temperature-change---dataanalyst/pictures/temp_head.PNG"
     st.image(image_path, caption='First 10 lines of the temperature change dataset.', use_column_width=True)
   
  
     st.subheader("[Emission and Temperature data - owid-co2-data.csv](https://github.com/owid/co2-data)")
     st.write("This dataset is freely available on GitHub. This CO2 and Greenhouse Gas Emissions dataset is a collection of key metrics maintained by 'Our World in Data'. It is uploaded regularly and includes data on CO2 emission (annual, per capita, cumulative and consumption-based), other greenhouse gases, energy mix and other relevant metrics.")
-    image_path = "I:/Dropbox/Data Analyst/co2_head.png"
+    image_path = "/workspaces/temperature-change---dataanalyst/pictures/co2_head.PNG"
     st.image(image_path, caption='First 10 lines of the co2-emissions dataset. Only the first frew columns of in total 79 columns are shown.', use_column_width=True)
 
 def visualization_page():
@@ -64,15 +64,15 @@ def visualization_page():
     st.write("This page provides on overview of different visualizations of the used dataset, that were generated during the data cleaning and pre-processing. These charts help to understand the datasets, their structure and limitations. They also show extreme values as well as outliers that would be unrealistic.")
     
     # Displaying different visualizations
-    image_path = "I:/Dropbox/Data Analyst/Screenshot2.png"
+    image_path = "/workspaces/temperature-change---dataanalyst/pictures/Screenshot2.PNG"
     st.image(image_path, caption='Development of the CO2-emissions within the dataset.', use_column_width=True)
     st.write("The chart above pictures the CO2-emission data throughout the years. Data is available from 1990 until 2020. It shows the development throughout the years and also shows potential outliers or extreme values (which isn't the case here).")
     
-    image_path_2 = "I:/Dropbox/Data Analyst/Screenshot3.png"
+    image_path_2 = "/workspaces/temperature-change---dataanalyst/pictures/Screenshot3.PNG"
     st.image(image_path_2, caption='Distribution of the CO2-emissions within the dataset.', use_column_width=True)
     st.write("The second chart shows the development of the temperature change throughout the years. Here data is available from 1960 until 2020. For this longer timeframe the scatter plot better shows outliers and extreme values as it picutres every single data point without any connection.")
     
-    image_path_3 = "I:/Dropbox/Data Analyst/Correlation.png"
+    image_path_3 = "/workspaces/temperature-change---dataanalyst/pictures/Correlation.png"
     st.image(image_path_3, caption='Correlation between the different variables in the CO2-emissions dataset.', use_column_width=True)
     st.write("This chart show the correlation of the different variables within the dataset. It can be seen that there is a strong correlation between the CO2 emissions and the temperature change.")
     	
@@ -192,7 +192,7 @@ def machine_learning_methods_page():
     Prophet's ability to handle non-linear relationships and complex seasonal patterns makes it well-suited for forecasting temperature changes, which often exhibit such characteristics. By leveraging the capabilities of Prophet, we can obtain reliable forecasts of temperature changes for future periods, aiding in various applications such as climate research, urban planning, and agriculture.
     """)
 
-    image_path = "I:/Dropbox/Data Analyst/Prophet.png"
+    image_path = "/workspaces/temperature-change---dataanalyst/pictures/Prophet.PNG"
     st.image(image_path, caption='Prediction of temperature change using Prophet.', use_column_width=True)
 
 
@@ -304,10 +304,20 @@ def prediction_page():
 def conclusion_page():
     st.title("Conclusion")
 
-    st.write("Welcome to the Conclusion page!")
+    # Exploring the datasets and preprocessing
+    st.write("This project aimed to analyze the relationship between CO2 emissions and temperature change using machine learning techniques. We started by exploring the datasets, which provided information on global greenhouse gas emissions and temperature changes over time. During the preprocessing, the data has been analyzed, with a special focus on relevant data, missing values, and correlations.")
 
-    st.header("Summary")
-    st.write("This project aimed to analyze the relationship between CO2 emissions and temperature change using machine learning techniques. We started by exploring the datasets, which provided information on global greenhouse gas emissions and temperature changes over time. After preprocessing the data, we applied linear regression models to predict future CO2 emissions and temperature changes. Through visualization and analysis, we gained insights into the trends and patterns in CO2 emissions and temperature changes for selected countries. While linear regression provided a simple method for prediction, further exploration using more advanced techniques could enhance the accuracy of our predictions.")
+    # Testing machine learning algorithms
+    st.write("After that, the linear regression model as well as Facebook’s Prophet has been used as machine learning algorithms to test the prediction of CO emissions and temperature changes for one single country.")
+
+    # Setting up flexible future prediction for G7 countries
+    st.write("Based on these tests, a flexible future prediction for the G7 countries has been set up. Based on the input of which countries and future timeframe should be predicted, the linear regression models were trained to predict CO2 emissions and use this prediction to predict the expected temperature change.")
+
+    # Limitations of linear regression in predicting CO2 emissions and temperature changes
+    st.write("Linear regression provides a simple prediction based on a linear trend. For complex topics like CO2 emissions and temperature change, it quickly reaches its limitations. These two outcomes depend on many different factors. This leads to confusing outcomes like sinking emissions with still rising temperature. This might be due to other influences on temperature change apart from CO emissions, or the possibility that reduced emissions might take a longer time until it results in reduced temperature change. Both factors are not known and can also not be implemented with a linear model.")
+
+    # Conclusion about the project
+    st.write("Overall, the project and its Streamlit application show the successful application of basic data processing, analysis, and prediction, which was the main aim of the project.")
 
 if __name__ == "__main__":
     main()
